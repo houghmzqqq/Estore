@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+		"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+		"http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+    	<property name="connection.username">sa</property>
+    	<property name="connection.password">870437521</property>
+    	<property name="connection.driver_class">com.microsoft.sqlserver.jdbc.SQLServerDriver</property>
+    	<property name="connection.url">jdbc:sqlserver://localhost:1433;DatabaseName=Estore</property>
+    	<!-- 方言，根据不同方言对数据库进行优化 -->
+    	<property name="dialect">org.hibernate.dialect.SQLServerDialect</property>
+    	
+    	<!-- 把hibernate运行时的sql语句输出到控制台，方便测试 -->
+    	<property name="show_sql">false</property>
+    	<!--对输出到控制台的sql语句进行排版-->
+    	<property name="format_sql">false</property>
+    	<!--控制具体生成的表结构 【create|update|create-drop|validate】-->
+    	<property name="hbm2ddl.auto">update</property>
+
+    	<property name="hibernate.current_session_context_class">thread</property>
+    	
+    	<property name="hibernate.c3p0.max_size">20</property>
+    	<property name="hibernate.c3p0.min_size">1</property>
+    	<property name="hibernate.c3p0.timeout">5000</property>
+    	<property name="hibernate.c3p0.max_statements">100</property>
+    	<property name="hibernate.c3p0.idle_test_period">3000</property>
+    	<property name="hibernate.c3p0.acquire_increment">2</property>
+    	<property name="hibernate.c3p0.validate">true</property>
+    	
+    	<!-- 指定二级缓存的外部实现类 --><!-- 
+    	<property name="cache.use_second_level_cache">true</property>
+    	<property name="hibernate.cache.region.factory_class">net.sf.ehcache.hibernate.EhCacheRegionFactory</property> -->
+    	
+    	<mapping class="com.itheima.entity.User"/>
+    	<mapping class="com.itheima.entity.TheOrder"/>
+    	<mapping class="com.itheima.entity.Commodity"/>
+    	<mapping class="com.itheima.entity.OrderItem"/>
+    	<mapping class="com.itheima.entity.CommodityImg"/>
+    </session-factory>
+    
+</hibernate-configuration>
